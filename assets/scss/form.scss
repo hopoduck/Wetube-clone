@@ -7,3 +7,9 @@ form {
     margin: 10px;
   }
 }
+input[type="password"] {
+  font-family: sans-serif;
+  &::placeholder {
+    font-family: "Jeju Gothic", sans-serif;
+  }
+}

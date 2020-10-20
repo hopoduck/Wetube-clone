@@ -1,9 +1,24 @@
 header {
-  padding: 10px 0px;
+  padding: 20px 0px;
   background-color: rgba($color: #ccc, $alpha: 0.5);
+  .wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    &:last-child {
+      align-items: end;
+    }
+  }
   .logo {
-    padding: 20px 0px;
+    vertical-align: middle;
     font-size: 30px;
+
+    letter-spacing: -3px;
+
+    i {
+      margin-bottom: -2px;
+      font-size: 40px;
+      color: red;
+    }
   }
   .nav_bar {
     text-align: right;

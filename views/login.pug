@@ -2,6 +2,7 @@ extend layouts/main
 
 block content
     .wrap
+        .pageTitle=pageTitle
         form.login-form(action=routes.login, method="post")
             input(type="text", name="id", placeholder="ID")
             input(type="password", name="password", placeholder="Password")
