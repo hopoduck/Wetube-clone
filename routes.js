@@ -1,4 +1,4 @@
-export const routes = {
+const routes = {
   home: "/",
   signUp: "/sign-up",
   login: "/login",
@@ -10,3 +10,5 @@ export const routes = {
   users: "/users",
   userDetail: "/users/:id",
 };
+
+export default routes;

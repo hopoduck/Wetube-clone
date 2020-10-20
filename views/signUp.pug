@@ -1,0 +1,9 @@
+extend layouts/main
+
+block content
+    .wrap
+        form.login-form(action=routes.login, method="post")
+            input(type="text", name="id", placeholder="ID")
+            input(type="password", name="password", placeholder="Password")
+            input(type="password", name="password2", placeholder="Verify Password")
+            input(type="submit", value="Sign Up")

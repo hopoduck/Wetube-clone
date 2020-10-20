@@ -10,6 +10,7 @@ import passport from "passport";
 // import MongoStore from "connect-mongo";
 import routes from "./routes";
 import { localsMiddleware } from "./middlewares";
+import { globalRouter } from "./routers/globalRouter";
 // import globalRouter from "./routers/globalRouter";
 // import userRouter from "./routers/userRouter";
 // import videoRouter from "./routers/videoRouter";
@@ -41,7 +42,7 @@ app.use(morgan("dev"));
 
 app.use(localsMiddleware);
 
-// app.use(routes.home, globalRouter);
+app.use(routes.home, globalRouter);
 // app.use(routes.users, userRouter);
 // app.use(routes.videos, videoRouter);
 // app.use(routes.api, apiRouter);
