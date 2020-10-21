@@ -12,7 +12,7 @@ export const getHome = async (req, res) => {
 export const getSignUp = (req, res) => {
   res.render("signUp", { pageTitle: "Sign Up" });
 };
-export const postSignUp = async (req, res) => {
+export const postSignUp = async (req, res, next) => {
   const {
     body: { id, password, password2, name },
   } = req;
@@ -20,7 +20,7 @@ export const postSignUp = async (req, res) => {
     // User create
     try {
       console.log(id, password, password2, name);
-      const User = await User({
+      const user = await User({
         id,
         name,
       });

@@ -8,12 +8,12 @@ block content
                 .video-play#jsPlayButton
                     i.fas.fa-play
                 .video-timer
-                    input.videoTimer#jsVideoTimer(type="range", step="1")
+                    input.videoTimer#jsVideoTimer(type="range", step="1", value="0")
                 .video-time#jsVideoTime 00:00 / 00:00
                 .video-volume#jsVoulme
                     .video-volumeIcon#jsVoulmeIcon
                         i.fas.fa-volume
-                    input.videoVolumeRange#jsVoulmeRange(type="range", step="0.05", min="0", max="1")
+                    input.videoVolumeRange#jsVoulmeRange(type="range", step="0.05", min="0", max="1", value="1")
                 .video-fullScreen#jsFullScreen
                     i.fas.fa-expand
         .video-info
