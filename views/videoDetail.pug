@@ -1,0 +1,78 @@
+extend layouts/main
+
+block content
+    .wrap
+        .video-player#jsVideoContainer
+            video#jsVideo(src="../"+video.fileUrl)
+            .video-control#jsVideoController
+                .video-play#jsPlayButton
+                    i.fas.fa-play
+                .video-timer
+                    input.videoTimer#jsVideoTimer(type="range", step="1")
+                .video-time#jsVideoTime 00:00 / 00:00
+                .video-volume#jsVoulme
+                    .video-volumeIcon#jsVoulmeIcon
+                        i.fas.fa-volume
+                    input.videoVolumeRange#jsVoulmeRange(type="range", step="0.05", min="0", max="1")
+                .video-fullScreen#jsFullScreen
+                    i.fas.fa-expand
+        .video-info
+            .title=video.title
+            -const date = video.createdAt
+            if video.views === 0 ||video.views === 1
+                .views.createdAt=`${video.views} View · ${date.getFullYear()}. ${date.getMonth()+1}. ${date.getDate()}.`
+            else
+                .views.createdAt=`${video.views} Views · ${date.getFullYear()}. ${date.getMonth()+1}. ${date.getDate()}.`
+            .description=video.description
+            if user
+                if user.id === video.creator
+                    a(href=routes.videos+routes.videoEdit(video._id))
+                        button Edit Video
+
+        //- .videoPlayer#jsVideoPlayer
+        //-     video(src="../"+video.fileUrl, autoplay)
+        //-     .videoPlayer__controls
+        //-         input#jsVideoTime(type="range", name="time", min="0", max="100", step="1", value="0")
+        //-         .videoPlayer__column
+        //-             span#jsPlayButton
+        //-                 i.fas.fa-pause
+        //-             span#jsVolumeButton
+        //-                 i.fas.fa-volume-up
+        //-             input.videoPlayer__volume#jsVolume(type="range", name="volume", min="0", max="1", step="0.05", value="1")
+        //-         .videoPlayer__column
+        //-             span
+        //-                 span#currentTime 00:00:00
+        //-                 |/
+        //-                 span#totalTime 00:00:00
+        //-         .videoPlayer__column
+        //-             span#jsFullScreen
+        //-                 i.fas.fa-expand
+
+        //-  .video__info
+        //-      if video.creator.id === loggedUser.id
+        //-         button.small 
+        //-             a(href=routes.editVideo(video.id)) Edit Video
+        //-     .video__title=video.title
+        //-     .video__author
+        //-         | Uploaded by 
+        //-         a(href=routes.userDetail(video.creator.id))=video.creator.name
+        //-     .video__views #{video.views} views
+        //-     .video__description=video.description
+        //- .video__comment
+        //-     if video.comments.length === 0 || video.comments.length === 1
+        //-         .video__comment-number
+        //-             span#jsCommentCount=video.comments.length
+        //-             span#jsCommentEnd &nbsp;comment
+        //-     else
+        //-         .video__comment-number
+        //-             span#jsCommentCount=video.comments.length
+        //-             span#jsCommentEnd &nbsp;comments
+        //-     form.add__comment#jsAddComment
+        //-         input(type="text", placeholder="Add a Comment...")
+        //-     ul.video__comment-list#jsCommentList
+        //-         each comment in video.comments.reverse()
+        //-             if String(loggedUser._id) === String(comment.creator)
+        //-                 .comment(data-id=comment._id)=comment.text
+        //-                 input(type="submit", value="X" data-id=comment._id)
+        //-             else 
+        //-                 .comment(id=`${comment._id}`)=comment.text

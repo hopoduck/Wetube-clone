@@ -1,0 +1,30 @@
+.main .wrap.home {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+  & * {
+    margin-bottom: 5px;
+  }
+  video {
+    background-color: #000;
+    width: 100%;
+    height: 133px;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .views,
+  .createdAt {
+    font-size: 16px;
+    font-weight: 200;
+    color: rgba($color: #000, $alpha: 0.5);
+  }
+  .creator {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(0, 0, 255, 0.8);
+    & a:hover {
+      text-decoration: underline;
+    }
+  }
+}

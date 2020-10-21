@@ -5,11 +5,25 @@ header.header
                 i.fab.fa-youtube
                 |    YourTube
         .nav_bar
-            span
-                a(href=routes.signUp)
-                    i.fas.fa-user-plus
-                    |   SIGN UP
-            span
-                a(href=routes.login)
-                    i.fas.fa-sign-in-alt
-                    |   LOGIN
+            if user === undefined
+                span
+                    a(href=routes.signUp)
+                        i.fas.fa-user-plus
+                        |   SIGN UP
+                span
+                    a(href=routes.login)
+                        i.fas.fa-sign-in-alt
+                        |   LOGIN
+            else
+                span
+                    a(href=routes.upload)
+                        i.fas.fa-upload
+                        |   UPLOAD
+                span
+                    a(href=`${routes.users}${routes.userDetail(user.id)}`)
+                        i.fas.fa-user
+                        |   PROFILE
+                span
+                    a(href=routes.logout)
+                        i.fas.fa-sign-out-alt
+                        |   LOGOUT

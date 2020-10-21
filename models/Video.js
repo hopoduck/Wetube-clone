@@ -7,6 +7,7 @@ const VideoSchema = new mongoose.Schema({
   },
   description: String,
   creator: String,
+  creatorName: String,
   createdAt: {
     type: Date,
     default: new Date(),
@@ -14,6 +15,10 @@ const VideoSchema = new mongoose.Schema({
   fileUrl: {
     type: String,
     required: "FileUrl is required!!",
+  },
+  views: {
+    type: Number,
+    default: 0,
   },
 });
 

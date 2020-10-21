@@ -1,0 +1,9 @@
+extend layouts/main
+
+block content
+    .wrap
+        .pageTitle=video.title
+        form.upload-form(action=routes.videos+routes.videoEdit(video._id), method="post")
+            input(type="text", name="title", required, placeholder="Title", value=video.title)
+            textarea(name="description", cols="30", rows="10", placeholder="Description")=video.description
+            input(type="submit", value="Edit")
