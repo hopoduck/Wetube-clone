@@ -1,6 +1,5 @@
 import Video from "../models/Video";
 import User from "../models/User";
-import mongoose from "mongoose";
 import routes from "../routes";
 import fs from "fs";
 
@@ -8,8 +7,10 @@ export const getVideoDetail = async (req, res) => {
   const {
     params: { id },
   } = req;
-  const video = await Video.findById(id);
-  console.log(id, video);
+  const video = await Video.findById(id)
+    .populate("comment")
+    .populate("creator");
+  console.log(video);
   res.render("videoDetail", { pageTitle: video.title, video });
 };
 

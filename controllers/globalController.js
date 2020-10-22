@@ -5,7 +5,7 @@ import Video from "../models/Video";
 import { uploadVideo } from "../middlewares";
 
 export const getHome = async (req, res) => {
-  const videos = await Video.find({});
+  const videos = await Video.find({}).populate("creator");
   res.render("home", { pageTitle: "Home", videos });
 };
 

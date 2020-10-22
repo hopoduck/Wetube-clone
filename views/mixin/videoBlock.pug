@@ -4,10 +4,12 @@ mixin videoBlock(video={})
         a(href=`${routes.videos}${routes.videoDetail(video._id)}`)
             video(src=`../${video.fileUrl}`)
             .title=video.title
-            .views=`${video.views} views`
-            //- -const date = video.createdAt;
+            if video.views <= 1
+                .views=`${video.views} View`
+            else
+                .views=`${video.views} Views`
             .createdAt=`${video.createdAt.getFullYear()}년 ${video.createdAt.getMonth()+1}월 ${video.createdAt.getDate()}일`
         .creator
-            a(href=`${routes.users}${routes.userDetail(video.creator)}`)
+            a(href=`${routes.users}${routes.userDetail(video.creator._id)}`)
                 i.fas.fa-user-alt
-                span.name=` ${video.creatorName}`
+                span.name=` ${video.creator.name}`

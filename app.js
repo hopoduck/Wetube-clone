@@ -11,16 +11,12 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import routes from "./routes";
 import { localsMiddleware } from "./middlewares";
-import { globalRouter } from "./routers/globalRouter";
-// import globalRouter from "./routers/globalRouter";
-// import userRouter from "./routers/userRouter";
-// import videoRouter from "./routers/videoRouter";
-// import apiRouter from "./routers/apiRouter";
-
-import "./passport";
+import globalRouter from "./routers/globalRouter";
 import videoRouter from "./routers/videoRouter";
 import apiRouter from "./routers/apiRouter";
 import userRouter from "./routers/userRouter";
+
+import "./passport";
 
 dotenv.config();
 

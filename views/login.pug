@@ -6,4 +6,8 @@ block content
         form.login-form(action=routes.login, method="post")
             input(type="text", name="id", placeholder="ID")
             input(type="password", name="password", placeholder="Password")
-            input(type="submit", value="LogIn")
+            input(type="submit", value="Login")
+        a(href=routes.githubLogin)
+            button.github
+                i.fab.fa-github-alt
+                |   Github Login

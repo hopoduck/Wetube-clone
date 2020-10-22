@@ -32,3 +32,17 @@ input[type="password"] {
     display: block;
   }
 }
+.save-button {
+  border: 2px solid $hoverGreen;
+  background-color: $green;
+  &:hover {
+    background-color: $hoverGreen;
+  }
+}
+.delete-button {
+  border: 2px solid $hoverRed;
+  background-color: $red;
+  &:hover {
+    background-color: $hoverRed;
+  }
+}

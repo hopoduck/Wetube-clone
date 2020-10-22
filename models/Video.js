@@ -6,7 +6,10 @@ const VideoSchema = new mongoose.Schema({
     required: "title is required",
   },
   description: String,
-  creator: String,
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
   creatorName: String,
   createdAt: {
     type: Date,
@@ -20,6 +23,12 @@ const VideoSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  comments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Comment",
+    },
+  ],
 });
 
 const model = mongoose.model("Video", VideoSchema);

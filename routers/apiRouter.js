@@ -1,11 +1,12 @@
 import express from "express";
-import { postApiView } from "../controllers/apiContoller";
+import { postApiCommentAdd, postApiView } from "../controllers/apiContoller";
 import { onlyPrivate, onlyPublic, uploadVideo } from "../middlewares";
 import routes from "../routes";
 
 export const apiRouter = express.Router();
 
 apiRouter.post(routes.apiView(), postApiView);
+apiRouter.post(routes.apiCommentAdd(), postApiCommentAdd);
 // apiRouter.get(routes.signUp, onlyPublic, getSignUp);
 // apiRouter.post(routes.signUp, onlyPublic, postSignUp, postLogin);
 // apiRouter.get(routes.login, onlyPublic, getLogin);
