@@ -172,25 +172,3 @@
     }
   }
 }
-.video-info {
-  * {
-    margin-top: 10px;
-  }
-  .title {
-    margin: 15px 0px;
-    font-size: 26px;
-    font-weight: 600;
-  }
-  .views,
-  .createdAt {
-    font-size: 16px;
-    font-weight: 100;
-    color: rgba(100, 100, 100, 0.8);
-    padding-bottom: 20px;
-    border-bottom: 1px solid black;
-  }
-  .description {
-    font-size: 16px;
-    font-weight: 400;
-  }
-}

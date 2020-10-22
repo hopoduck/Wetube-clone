@@ -23,9 +23,14 @@ block content
                 .views.createdAt=`${video.views} View · ${date.getFullYear()}. ${date.getMonth()+1}. ${date.getDate()}.`
             else
                 .views.createdAt=`${video.views} Views · ${date.getFullYear()}. ${date.getMonth()+1}. ${date.getDate()}.`
+            .creatorName
+                span Uploaded by 
+                a(href=routes.users+routes.userDetail(video.creator))
+                    i.fas.fa-user
+                    span=` ${video.creatorName}`
             .description=video.description
             if user
-                if user.id === video.creator
+                if String(user._id) === String(video.creator)
                     a(href=routes.videos+routes.videoEdit(video._id))
                         button Edit Video
 

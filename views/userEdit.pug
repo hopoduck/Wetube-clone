@@ -1,0 +1,10 @@
+extend layouts/main
+
+block content
+    .wrap
+        .pageTitle=pageTitle
+        form.basic-form(action=routes.users+routes.userEdit(getUser._id), method="post", enctype="multipart/form-data")
+            |Avatar Image
+            input(type="file", name="avatar", placeholder="Avatar", accept="image/*")
+            input(type="text", name="name", placeholder="Name", value=getUser.name)
+            input(type="submit", value="Edit Profile")

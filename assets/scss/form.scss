@@ -10,6 +10,10 @@ textarea {
     outline: none;
   }
 }
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
 form {
   text-align: center;
 }
@@ -17,5 +21,14 @@ input[type="password"] {
   font-family: sans-serif;
   &::placeholder {
     font-family: "Jeju Gothic", sans-serif;
+  }
+}
+.basic-form {
+  margin-top: 30px;
+  & * {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    display: block;
   }
 }

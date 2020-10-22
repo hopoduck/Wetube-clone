@@ -1,0 +1,13 @@
+extend layouts/main
+
+block content
+    .wrap
+        .user-info
+            .avatar
+                img.avatarImg(src="/"+getUser.avatarUrl, alt="Avatar Image")
+            .name=getUser.name  
+        
+        if user
+            if String(getUser._id) === String(user._id)
+                a(href=routes.users+routes.userEdit(getUser._id))
+                    button Edit Profile

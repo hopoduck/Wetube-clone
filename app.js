@@ -19,6 +19,8 @@ import { globalRouter } from "./routers/globalRouter";
 
 import "./passport";
 import videoRouter from "./routers/videoRouter";
+import apiRouter from "./routers/apiRouter";
+import userRouter from "./routers/userRouter";
 
 dotenv.config();
 
@@ -29,6 +31,7 @@ const CokieStore = MongoStore(session);
 app.use(helmet({ contentSecurityPolicy: false }));
 app.set("view engine", "pug");
 app.use("/uploads", express.static("uploads"));
+app.use("/favicon.ico", express.static("./favicon.ico"));
 app.use("/static", express.static("static"));
 app.use(cookieParser());
 app.use(bodyParser.json()); // 모든 라우터에 적용되는 함수
@@ -49,7 +52,7 @@ app.use(localsMiddleware);
 
 app.use(routes.home, globalRouter);
 app.use(routes.videos, videoRouter);
-// app.use(routes.users, userRouter);
-// app.use(routes.api, apiRouter);
+app.use(routes.users, userRouter);
+app.use(routes.api, apiRouter);
 
 export default app;

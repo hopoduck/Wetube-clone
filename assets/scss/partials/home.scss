@@ -5,6 +5,11 @@
   & * {
     margin-bottom: 5px;
   }
+  a:hover {
+    .title {
+      font-weight: 700;
+    }
+  }
   video {
     background-color: #000;
     width: 100%;
@@ -16,15 +21,16 @@
   .views,
   .createdAt {
     font-size: 16px;
-    font-weight: 200;
+    font-weight: 100;
     color: rgba($color: #000, $alpha: 0.5);
   }
   .creator {
     font-size: 16px;
     font-weight: 500;
-    color: rgba(0, 0, 255, 0.8);
+    color: $blue;
     & a:hover {
       text-decoration: underline;
+      color: $hoverBlue;
     }
   }
 }

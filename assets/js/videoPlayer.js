@@ -95,10 +95,13 @@ function handleVolumeDrag(value) {
 
 function handleSliderDrag() {
   videoPlayer.currentTime = videoTimer.value;
+  currentTime = timeFormater(videoTimer.value);
+  videoTime.innerHTML = `${currentTime} / ${totalTime}`;
 }
 
 function handleKeyboardInput(event) {
   if (event.key === " ") {
+    event.preventDefault();
     handlePlayBtn();
   }
 }

@@ -53,6 +53,27 @@ const routes = {
 
   // api
   api: "/api",
+  apiView: (id) => {
+    if (id) {
+      return `/${id}/views`;
+    } else {
+      return "/:id/views";
+    }
+  },
+  apiCommentAdd: (id) => {
+    if (id) {
+      return `/${id}/comment-add`;
+    } else {
+      return "/:id/comment-add";
+    }
+  },
+  apiCommentDelete: (id) => {
+    if (id) {
+      return `/${id}/comment-delete`;
+    } else {
+      return "/:id/comment-delete";
+    }
+  },
 };
 
 export default routes;

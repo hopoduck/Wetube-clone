@@ -11,10 +11,15 @@
     - [ ] NAVER LOGIN
   - [ ] VIDEO
     - [x] VIDEO UPLOAD
-    - [ ] VIDEO DETAIL
-    - [ ] VIDEO EDIT
-    - [ ] VIDEO DELETE
+    - [x] VIDEO DETAIL
+    - [x] VIDEO EDIT
+    - [x] VIDEO DELETE
   - [ ] USER
-    - [ ] USER DETAIL
-    - [ ] USER EDIT
+    - [x] USER DETAIL
+    - [x] USER EDIT
+    - [ ] USER CHANGE PASSWORD
+  - [ ] API
+    - [x] VIEWS
+    - [ ] COMMENT
+    - [ ] COMMENT DELETE
   - [ ] HEROKU 
