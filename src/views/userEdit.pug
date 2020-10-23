@@ -8,3 +8,5 @@ block content
             input(type="file", name="avatar", placeholder="Avatar", accept="image/*")
             input(type="text", name="name", placeholder="Name", value=getUser.name)
             input(type="submit", value="Edit Profile")
+        a(href=routes.users+routes.userChangePassword(getUser._id))
+            button Change Password

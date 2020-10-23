@@ -46,6 +46,13 @@ const routes = {
       return "/:id/edit";
     }
   },
+  userChangePassword: (id) => {
+    if (id) {
+      return "/" + id + "/change-password";
+    } else {
+      return "/:id/change-password";
+    }
+  },
 
   // OAuth
   githubLogin: "/auth/github",

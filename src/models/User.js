@@ -3,11 +3,11 @@ import passportLocalMongoose from "passport-local-mongoose";
 
 const UserSchema = new mongoose.Schema({
   id: {
-      type:String,
-      required: 'id is required'
+    type: String,
+    required: "id is required",
   },
   name: String,
-  avatarUrl: String,
+  avatarUrl: { type: String, default: `uploads/avatars/default.svg` },
   githubId: Number,
   comments: [
     {

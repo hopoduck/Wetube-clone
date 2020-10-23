@@ -1,0 +1,20 @@
+.login-form {
+  margin: 50px 0px;
+  input {
+    display: block;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+  }
+}
+.github {
+  display: block;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  margin-top: -40px;
+  background-color: $github;
+  color: #fff;
+}

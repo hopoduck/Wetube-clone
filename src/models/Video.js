@@ -10,10 +10,9 @@ const VideoSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  creatorName: String,
   createdAt: {
     type: Date,
-    default: new Date(),
+    default: Date.now,
   },
   fileUrl: {
     type: String,

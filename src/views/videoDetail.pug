@@ -19,6 +19,7 @@ block content
         .video-info
             .title=video.title
             -const date = video.createdAt
+            -console.log(date)
             if video.views === 0 ||video.views === 1
                 .views.createdAt=`${video.views} View · ${date.getFullYear()}. ${date.getMonth()+1}. ${date.getDate()}.`
             else
@@ -39,7 +40,7 @@ block content
                 each comment in video.comments.reverse()
                     if comment
                         if String(user._id) === String(comment.creator)
-                            .comment(data-id=comment._id)=comment.text
-                            input(type="submit", value="X" data-id=comment._id)
+                            .comment.mycomment(data-id=comment._id)=comment.text
+                            //- input.deleteBtn(type="submit", value="X" data-id=comment._id)
                         else 
-                            .comment(id=`${comment._id}`)=comment.text
+                            .comment(data-id=`${comment._id}`)=comment.text

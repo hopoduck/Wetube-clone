@@ -8,7 +8,7 @@ export const getVideoDetail = async (req, res) => {
     params: { id },
   } = req;
   const video = await Video.findById(id)
-    .populate("comment")
+    .populate("comments")
     .populate("creator");
   console.log(video);
   res.render("videoDetail", { pageTitle: video.title, video });

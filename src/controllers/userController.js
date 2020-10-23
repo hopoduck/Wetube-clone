@@ -2,6 +2,7 @@ import routes from "../routes";
 import User from "../models/User";
 import Video from "../models/Video";
 import passport from "passport";
+import { Error } from "mongoose";
 
 export const getUserDetail = async (req, res) => {
   const {
@@ -46,28 +47,57 @@ export const postUserEdit = async (req, res) => {
   }
 };
 
+// Change Password
+export const getUserChangePassword = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  const getUser = await User.findById(id);
+  // console.log(String(getUser._id), String(req.user._id));
+  if (String(getUser._id) === String(req.user._id)) {
+    res.render("changePassword", { pageTitle: `Change Password`, getUser });
+  } else {
+    res.redirect(routes.home);
+  }
+};
+
+export const postUserChangePassword = async (req, res) => {
+  const {
+    params: { id },
+    body: { oldPassword, newPassword, newPassword1 },
+  } = req;
+  try {
+    if (newPassword !== newPassword1) {
+      throw "error";
+    } else {
+      await req.user.changePassword(oldPassword, newPassword);
+      res.redirect(routes.users + routes.userDetail(id));
+    }
+  } catch (error) {
+    res.redirect(routes.users + routes.userDetail(id));
+  }
+};
+
 // github OAuth Login
 export const githubLogin = passport.authenticate("github");
 
 export const githubLoginCallback = async (_, __, profile, cb) => {
   const {
-    _json: { id = login, name, githubId = id, avatar_url },
+    _json: { login, name, id, avatar_url },
   } = profile;
-  console.log(id, name, githubId, avatar_url);
-  console.log(profile);
   try {
     const user = await User.findOne({ id });
     if (user) {
-      user.githubId = githubId;
+      user.githubId = id;
       user.avatarUrl = avatar_url;
-      user.name = id;
+      user.name = name;
       user.save();
       return cb(null, user);
     }
     const newUser = await User.create({
-      id,
+      id: login,
       name,
-      githubId,
+      githubId: id,
       avatarUrl: avatar_url,
     });
     return cb(null, newUser);

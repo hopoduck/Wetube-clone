@@ -2,13 +2,13 @@
 ### Nomad Coders Youtube clone challenge
 
 ## TODO LIST
-  - [ ] HTML
-  - [ ] STYLE
+  - [x] HTML
+  - [x] STYLE
   - [x] SING UP
-  - [ ] LOGIN
+  - [x] LOGIN
     - [x] LOCAL LOGIN
-    - [ ] GITHUB LOGIN
-    - [ ] NAVER LOGIN
+    - [x] GITHUB LOGIN
+    <!-- - [ ] NAVER LOGIN -->
   - [ ] VIDEO
     - [x] VIDEO UPLOAD
     - [x] VIDEO DETAIL
@@ -17,9 +17,10 @@
   - [ ] USER
     - [x] USER DETAIL
     - [x] USER EDIT
-    - [ ] USER CHANGE PASSWORD
-  - [ ] API
+    - [x] USER CHANGE PASSWORD
+  - [x] API
     - [x] VIEWS
-    - [ ] COMMENT
-    - [ ] COMMENT DELETE
+    - [x] COMMENT
+    <!-- - [ ] COMMENT DELETE -->
+  - [x] BUILD 
   - [ ] HEROKU 

@@ -28,5 +28,27 @@
     font-size: 16px;
     white-space: pre-line;
     font-weight: 400;
+    max-height: 200px;
+    overflow: auto;
+  }
+}
+form.add-comment input {
+  width: 400px;
+}
+.video__comment-list {
+  .comment {
+    width: 400px;
+    padding: 20px;
+    margin: 10px auto;
+    font-size: 20px;
+    border: 1px none black;
+    border-radius: 15px 15px 15px 0px;
+    background-color: rgb(92, 206, 221);
+    word-break: break-all;
+  }
+  .mycomment {
+    border: 1px none black;
+    border-radius: 15px 15px 0px 15px;
+    background-color: rgb(247, 230, 0);
   }
 }

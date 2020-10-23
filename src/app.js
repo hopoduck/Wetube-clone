@@ -8,6 +8,7 @@ import bodyParser from "body-parser";
 import passport from "passport";
 import mongoose from "mongoose";
 import session from "express-session";
+import path from "path";
 import MongoStore from "connect-mongo";
 import routes from "./routes";
 import { localsMiddleware } from "./middlewares";
@@ -26,9 +27,10 @@ const CokieStore = MongoStore(session);
 
 app.use(helmet({ contentSecurityPolicy: false }));
 app.set("view engine", "pug");
-app.use("/uploads", express.static("uploads"));
-app.use("/favicon.ico", express.static("./favicon.ico"));
-app.use("/static", express.static("static"));
+app.set("views", path.join(__dirname, "views"));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/favicon.ico", express.static(path.join(__dirname, "./favicon.ico")));
+app.use("/static", express.static(path.join(__dirname, "static")));
 app.use(cookieParser());
 app.use(bodyParser.json()); // 모든 라우터에 적용되는 함수
 app.use(bodyParser.urlencoded({ extended: true })); // 모든 라우터에 적용되는 함수
