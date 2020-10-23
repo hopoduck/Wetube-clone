@@ -1,0 +1,16 @@
+extend layouts/main
+include mixin/videoBlock
+
+block content
+    .wrap
+        .search=`Searching By: ${searchingBy}`
+    .wrap.home
+        each video in videos
+            +videoBlock({
+                _id: video._id,
+                fileUrl: video.fileUrl,
+                title: video.title,
+                views: video.views,
+                createdAt: video.createdAt,
+                creator: video.creator,
+            })

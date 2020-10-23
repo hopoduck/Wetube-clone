@@ -4,6 +4,9 @@ header.header
             a(href=routes.home)
                 i.fab.fa-youtube
                 |    YourTube
+        .search
+            form(action=routes.search, method="get").basic-form
+                input(type="text", name="term", placeholder="Searching By term...")
         .nav_bar
             if user === undefined
                 span

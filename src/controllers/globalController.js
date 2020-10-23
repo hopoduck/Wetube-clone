@@ -9,6 +9,21 @@ export const getHome = async (req, res) => {
   res.render("home", { pageTitle: "Home", videos });
 };
 
+export const getSearch = async (req, res) => {
+  const {
+    query: { term: searchingBy },
+  } = req;
+  let videos = [];
+  try {
+    videos = await Video.find({
+      title: { $regex: searchingBy, $options: "i" },
+    }).populate("creator");
+  } catch (error) {
+    console.log(error);
+  }
+  res.render("search", { pageTitle: "Search", searchingBy, videos });
+};
+
 export const getSignUp = (req, res) => {
   res.render("signUp", { pageTitle: "Sign Up" });
 };
@@ -54,8 +69,9 @@ export const postUpload = async (req, res) => {
     body: { title, description },
     file: { path },
   } = req;
+  const filepath = path.split("src\\")[1];
   const newVideo = await Video.create({
-    fileUrl: path,
+    fileUrl: filepath,
     title,
     description,
     creator: req.user._id,

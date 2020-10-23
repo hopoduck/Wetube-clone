@@ -35,7 +35,8 @@ export const postUserEdit = async (req, res) => {
       params: { id },
       file: { path },
     } = req;
-    const user = await User.findByIdAndUpdate(id, { name, avatarUrl: path });
+    const filepath = path.split("src\\")[1];
+    const user = await User.findByIdAndUpdate(id, { name, avatarUrl: filepath });
     res.redirect(routes.users + routes.userDetail(id));
   } catch (error) {
     const {

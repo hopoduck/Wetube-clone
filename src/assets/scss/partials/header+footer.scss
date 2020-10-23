@@ -3,17 +3,16 @@ header {
   background-color: rgba($color: #ccc, $alpha: 0.5);
   .wrap {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 200px 1fr 350px;
     &:last-child {
       align-items: end;
     }
+    vertical-align: middle;
   }
   .logo {
-    vertical-align: middle;
+    align-content: center;
     font-size: 30px;
-
     letter-spacing: -3px;
-
     i {
       margin-bottom: -2px;
       font-size: 40px;

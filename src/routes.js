@@ -4,6 +4,7 @@ const routes = {
   signUp: "/sign-up",
   login: "/login",
   logout: "/logout",
+  search: "/search",
 
   // videos
   upload: "/upload",
